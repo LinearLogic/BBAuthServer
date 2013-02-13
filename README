@@ -1,0 +1,16 @@
+#BBAuthServer
+
+BBAuthServer is the account verification server for the Blazing Barrels game.
+When the BB client is launched, the user is prompted to log in with credentials
+(username and password), which are passed to the BBAuthServer. If the provided
+login info is correct, the user is added to a list of authenticated accounts.
+When the user then attempts to connect to a multiplayer BBGameServer, the game
+server sends a query to the BBAuthServer to ascertain whether the user is
+authenticated. If so, the user is allowed to connect and play online.
+
+
+Author: LinearLogic (Jared)
+
+Since: 2/12/2013
+
+Language: Java
