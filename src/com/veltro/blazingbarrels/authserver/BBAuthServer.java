@@ -6,12 +6,13 @@ import java.util.Scanner;
  * Program entry point and command handler
  * 
  * @author LinearLogic
- * @version 0.0.3
+ * @version 0.0.4
  */
 public class BBAuthServer {
 
 	public static void main(String[] args) {
-		// TODO: set up and start CommThread
+		CommThread communicator = new CommThread(7777);
+		communicator.start();
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			String[] cmd = sc.nextLine().trim().toLowerCase().split("\\s+");
@@ -72,9 +73,10 @@ public class BBAuthServer {
 			}
 			System.out.println("Input not recognized. Type /help for a list of available commands.");
 		}
-		// TODO: stop the CommThread
+
 		AccountManager.deauthorizeAll();
 		sc.close();
 		System.out.println("Server successfully termina- ZALGO!!!");
+		System.exit(0);
 	}
 }
