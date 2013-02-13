@@ -4,7 +4,7 @@ package com.veltro.blazingbarrels.authserver;
  * Program entry point and command handler
  * 
  * @author LinearLogic
- * @version 0.0.1
+ * @version 0.0.2
  */
 public class BBAuthServer {
 
