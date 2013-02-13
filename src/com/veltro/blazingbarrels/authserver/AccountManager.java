@@ -24,10 +24,14 @@ public class AccountManager {
 	 * to prevent threads from ending up with two different versions of this list after performing a write operation.
 	 * 
 	 * @param accountName The name of the account to authorize, if not already authorized
+	 * @return 'false' if the provided account was already authenticated, else 'true'
 	 */
-	public static synchronized void authorize(String accountName) {
-		if (!authorizedAccounts.contains(accountName.toLowerCase()))
+	public static synchronized boolean authorize(String accountName) {
+		if (!authorizedAccounts.contains(accountName.toLowerCase())) {
 			authorizedAccounts.add(accountName.toLowerCase());
+			return true;
+		}
+		return false;
 	}
 
 	/**
