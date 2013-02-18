@@ -14,7 +14,6 @@ import java.net.SocketException;
  */
 public class CommThread extends Thread {
 
-	private boolean running = false;
 	private DatagramSocket socket = null;
 
 	/**
@@ -26,7 +25,6 @@ public class CommThread extends Thread {
 		super("CommThread");
 		try {
 			socket = new DatagramSocket(port);
-			running = true;
 		} catch (SocketException e) {
 			System.err.println("FAILED TO BIND TO PORT " + port);
 			e.printStackTrace();
@@ -37,7 +35,7 @@ public class CommThread extends Thread {
 	 * Runs the thread, receiving auth packets and creating/dispatching response packets
 	 */
 	public void run() {
-		while (running) {
+		while (true) {
 			try {
 				byte[] buffer = new byte[256];
 		
